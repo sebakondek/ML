@@ -48,7 +48,9 @@ public class Translate {
 	}
 	
 	public String translate2Human(String morse) {
-				
+		
+		morse.trim();
+		
 		//Chequeo si hay clave morse
 		if(morse != null && morse.length() > 0) {
 			
@@ -79,6 +81,8 @@ public class Translate {
 	
 	public String translate2Morse(String ascii) {
 		
+		ascii.trim();
+		
 		//Chequeo si hay texto a convertir
 		if(ascii != null && ascii.length() > 0) {
 		
@@ -102,7 +106,7 @@ public class Translate {
 			
 		} else {
 			
-			return "There is no text to transform.";
+			return "There is no text to transform to morse.";
 		}
 	}
 	

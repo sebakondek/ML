@@ -9,11 +9,9 @@ public class Decode {
 		StringBuilder stringBuilder = new StringBuilder();
 		Translate translate = new Translate();
 		
-		String pulse = "";
-		String auxBits = "";
+		String pulse;
+		String auxBits = bits;
 		boolean flag = false;
-		
-		auxBits = bits;
 		
 		while(auxBits.length() > 0) {
 			
