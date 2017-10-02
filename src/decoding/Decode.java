@@ -6,9 +6,12 @@ public class Decode {
 		
 		StringBuilder stringBuilder = new StringBuilder();
 		
+		String morse;
 		String pulse;
-		String auxBits = bits;
+		String auxBits;
 		boolean flag = false;
+		
+		auxBits = bits.substring(bits.indexOf("1"));
 		
 		while(auxBits.length() > 0) {
 			
@@ -25,18 +28,21 @@ public class Decode {
 				flag = false;
 			}
 			
-			//agrego al stringbuilder el resultado de pasarle los pulsos a la funcion
-			stringBuilder.append(transformBits2Morse(pulse, flag));
+//			//agrego al stringbuilder el resultado de pasarle los pulsos a la funcion
+//			stringBuilder.append(transformBits2Morse(pulse, flag));
+			
+			morse = transformBits2Morse(pulse, flag);
+			if(morse != null) {
+				stringBuilder.append(morse);
+			}else
+				return String.valueOf(stringBuilder);
 			
 			//extraigo del string auxiliar los pulsos ya agregados
 			auxBits = auxBits.substring(pulse.length());
 		}		
 		
-		//convierto el stringbuilder a string
-		String morse = String.valueOf(stringBuilder);
-		
-		//paso el codigo morse a la funcion translate2Human y retorno el resultado
-		return morse;
+		//convierto el stringbuilder a string y lo retorno
+		 return String.valueOf(stringBuilder);
 	}
 	
 	
@@ -62,6 +68,9 @@ public class Decode {
 				
 				morse = " ";
 				
+			} else if(!flag && strLen >= 8) {
+				
+				return null;
 			}
 		}
 		
