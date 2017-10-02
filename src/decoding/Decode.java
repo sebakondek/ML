@@ -18,7 +18,7 @@ public class Decode {
 			//utilizo un flag para saber cuando busca espacios y cuando pulsos
 			if(!flag) {
 				
-				pulse = auxBits.substring(0, auxBits.indexOf("0"));
+				pulse = auxBits.substring(0, auxBits.indexOf("0") < 0 ? auxBits.lastIndexOf("1") + 1 : auxBits.indexOf("0"));
 				flag = true;
 				
 			} else {
