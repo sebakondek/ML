@@ -1,13 +1,10 @@
 package decoding;
 
-import conversion.Translate;
-
 public class Decode {
 
 	public String decodeBits2Morse(String bits) {
 		
 		StringBuilder stringBuilder = new StringBuilder();
-		Translate translate = new Translate();
 		
 		String pulse;
 		String auxBits = bits;
@@ -39,7 +36,7 @@ public class Decode {
 		String morse = String.valueOf(stringBuilder);
 		
 		//paso el codigo morse a la funcion translate2Human y retorno el resultado
-		return translate.translate2Human(morse);
+		return morse;
 	}
 	
 	
@@ -53,11 +50,11 @@ public class Decode {
 			int strLen = string.length();
 			
 			//el flag es para saber si estoy trabajando con pausa o pulso y el strLen para saber si es . o -
-			if(flag && strLen <= 5) {
+			if(flag && strLen <= 4) {
 				
 				morse = ".";
 				
-			} else if (flag && strLen > 5) {
+			} else if (flag && strLen > 4) {
 				
 				morse = "-";
 				

@@ -64,6 +64,10 @@ public class Translate {
 				//obtengo el valor mediante la clave del mapa table
 				if(morseArray[i].equals(" ") || morseArray[i].equals(""))
 					ascii.append(" ");
+				else if(morseArray[i].equals(".-.-.-")) {
+					ascii.append(table.get(morseArray[i]));
+					return String.valueOf(ascii);
+				}
 				else
 					ascii.append(table.get(morseArray[i]));
 				
