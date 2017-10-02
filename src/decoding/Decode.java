@@ -11,6 +11,7 @@ public class Decode {
 		String auxBits;
 		boolean flag = false;
 		
+		//inicializo auxbits ignorando la primer pausa larga para evitar errores de corte
 		auxBits = bits.substring(bits.indexOf("1"));
 		
 		while(auxBits.length() > 0) {
@@ -18,6 +19,7 @@ public class Decode {
 			//utilizo un flag para saber cuando busca espacios y cuando pulsos
 			if(!flag) {
 				
+				//si el infexof(0) de auxbits retorna -1 utiliza la posicion del ultimo 1 +1
 				pulse = auxBits.substring(0, auxBits.indexOf("0") < 0 ? auxBits.lastIndexOf("1") + 1 : auxBits.indexOf("0"));
 				flag = true;
 				
@@ -28,12 +30,13 @@ public class Decode {
 				flag = false;
 			}
 			
-//			//agrego al stringbuilder el resultado de pasarle los pulsos a la funcion
-//			stringBuilder.append(transformBits2Morse(pulse, flag));
-			
+			//envio el pulso y el flag a la funcion
 			morse = transformBits2Morse(pulse, flag);
+			
+			//si la respuesta de la funcion es distinta de null, apendo la respuesta al stringbuilder
 			if(morse != null) {
 				stringBuilder.append(morse);
+			//si la respuesta era null, significa que era un espacio largo por lo que corto la ejecucion retornando el stringbuilder
 			}else
 				return String.valueOf(stringBuilder);
 			
