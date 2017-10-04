@@ -33,7 +33,7 @@ public class Main {
 				System.out.println(translate.translate2Human(text) + "\n");
 				
 			//si el codigo esta compusto por alfabeto [A-Z] o [a-z] o . con espacios internos
-			} else if(text.matches("^[A-Za-z\\.\\s]+$")) {
+			} else if(text.matches("^[A-Za-z0-9\\.\\s]+$")) {
 				Translate translate = new Translate();
 				
 				System.out.println("\nTranslation:");
