@@ -11,7 +11,7 @@ public class Main {
 	public static void main(String[] args) {
 		
 		while(true) {
-			System.out.println("Enter the code to translate(2 to exit): ");
+			System.out.println("Enter the code to translate(_exit to exit): ");
 			Scanner scanner = new Scanner(System.in);
 			//obtengo el texto de la consola sin espacios exteriores
 			String text = scanner.nextLine().trim();
@@ -41,7 +41,7 @@ public class Main {
 				System.out.println(translate.translate2Morse(text) + "\n");
 				
 			//si el texto ingresado es igual a 2
-			} else if(text.equals("2")){
+			} else if(text.equals("_exit")){
 				System.out.println("\nSuccesfully exited the program.");
 				//salgo del programa
 				return;
